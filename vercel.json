@@ -1,6 +1,7 @@
 {
-  "buildCommand": "cd rad-tech-react && npm run build",
-  "outputDirectory": "rad-tech-react/dist",
+  "root": "rad-tech-react",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/(.*)",
