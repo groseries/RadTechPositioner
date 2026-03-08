@@ -4,16 +4,16 @@ import { BodyRegion, allBodyRegions, bodyRegionColors, bodyRegionHitRegions } fr
 
 const regionLabels: { region: BodyRegion; x: number; y: number }[] = [
   { region: BodyRegion.Head, x: 145, y: 25 },
-  { region: BodyRegion.CervicalSpine, x: 145, y: 78 },
-  { region: BodyRegion.Shoulder, x: 80, y: 110 },
-  { region: BodyRegion.Chest, x: 145, y: 155 },
-  { region: BodyRegion.ThoracicSpine, x: 200, y: 180 },
-  { region: BodyRegion.UpperExtremity, x: 55, y: 260 },
-  { region: BodyRegion.LumbarSpine, x: 200, y: 240 },
-  { region: BodyRegion.Abdomen, x: 145, y: 270 },
-  { region: BodyRegion.Pelvis, x: 145, y: 330 },
-  { region: BodyRegion.Hip, x: 100, y: 360 },
-  { region: BodyRegion.LowerExtremity, x: 145, y: 500 },
+  { region: BodyRegion.CervicalSpine, x: 145, y: 75 },
+  { region: BodyRegion.Shoulder, x: 80, y: 105 },
+  { region: BodyRegion.Chest, x: 145, y: 140 },
+  { region: BodyRegion.ThoracicSpine, x: 200, y: 150 },
+  { region: BodyRegion.UpperExtremity, x: 55, y: 200 },
+  { region: BodyRegion.LumbarSpine, x: 200, y: 180 },
+  { region: BodyRegion.Abdomen, x: 145, y: 195 },
+  { region: BodyRegion.Pelvis, x: 145, y: 240 },
+  { region: BodyRegion.Hip, x: 100, y: 250 },
+  { region: BodyRegion.LowerExtremity, x: 145, y: 280 },
 ];
 
 // Skeleton SVG - new grid-based design
@@ -59,7 +59,7 @@ export default function BodyDiagramView() {
       </div>
 
       <div className="body-diagram-container">
-        <svg viewBox="0 0 290.069 290.069" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 290.069 290.069">
           <SkeletonSVG />
 
           {/* Hit regions */}
@@ -86,24 +86,24 @@ export default function BodyDiagramView() {
             );
           })}
 
-          {/* Labels */}
+          {/* Labels - only show when highlighted */}
           {regionLabels.map(({ region, x, y }) => {
             const isHl = highlighted === region;
-            return (
+            return isHl ? (
               <text
                 key={region}
                 x={x} y={y}
                 textAnchor="middle"
                 dominantBaseline="central"
-                fontSize={isHl ? 9 : 7}
-                fontWeight={isHl ? 600 : 400}
-                fill={isHl ? bodyRegionColors[region] : 'var(--text-secondary)'}
-                style={{ pointerEvents: 'none', transition: 'all 0.2s ease', letterSpacing: '-0.02em' }}
-                opacity={isHl ? 1 : 0.65}
+                fontSize={9}
+                fontWeight={600}
+                fill={bodyRegionColors[region]}
+                style={{ pointerEvents: 'none', transition: 'opacity 0.2s ease', letterSpacing: '-0.02em' }}
+                opacity={1}
               >
                 {region}
               </text>
-            );
+            ) : null;
           })}
         </svg>
       </div>
