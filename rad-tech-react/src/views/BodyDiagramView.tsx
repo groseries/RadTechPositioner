@@ -52,12 +52,14 @@ export default function BodyDiagramView() {
   };
 
   return (
-    <>
-      <div className="page-title">Body Map</div>
-      <p className="subtitle-text">Tap a region to explore positions</p>
+    <div className="body-diagram-wrapper">
+      <div className="body-diagram-header">
+        <div className="page-title">Body Map</div>
+        <p className="subtitle-text">Tap a region to explore positions</p>
+      </div>
 
       <div className="body-diagram-container">
-        <svg viewBox="0 0 290.069 290.069" width="100%" style={{ display: 'block' }}>
+        <svg viewBox="0 0 290.069 290.069" preserveAspectRatio="xMidYMid meet">
           <SkeletonSVG />
 
           {/* Hit regions */}
@@ -106,7 +108,7 @@ export default function BodyDiagramView() {
         </svg>
       </div>
 
-      <div className="region-grid" style={{ marginTop: 12 }}>
+      <div className="region-grid">
         {allBodyRegions.map(region => (
           <button
             key={region}
@@ -126,7 +128,7 @@ export default function BodyDiagramView() {
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

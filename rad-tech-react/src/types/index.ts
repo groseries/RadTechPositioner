@@ -122,18 +122,21 @@ export const bodyRegionColors: Record<BodyRegion, string> = {
   [BodyRegion.LowerExtremity]: "#30B0C7",
 };
 
+// Hit regions normalized to the new SVG viewBox (290.069 x 290.069)
+// SVG anatomy landmarks: head ~y0-50, neck ~y60-80, shoulders ~y60-75,
+// arms ~y65-160, torso ~y60-185, pelvis/legs ~y160-290
 export const bodyRegionHitRegions: Record<BodyRegion, { x: number; y: number; w: number; h: number }> = {
-  [BodyRegion.Head]:            { x: 0.28, y: 0.0,  w: 0.44, h: 0.12 },
-  [BodyRegion.CervicalSpine]:   { x: 0.38, y: 0.11, w: 0.24, h: 0.03 },
-  [BodyRegion.Chest]:           { x: 0.22, y: 0.14, w: 0.56, h: 0.13 },
-  [BodyRegion.Shoulder]:        { x: 0.12, y: 0.14, w: 0.76, h: 0.04 },
-  [BodyRegion.UpperExtremity]:  { x: 0.05, y: 0.16, w: 0.90, h: 0.35 },
-  [BodyRegion.ThoracicSpine]:   { x: 0.40, y: 0.17, w: 0.20, h: 0.13 },
-  [BodyRegion.LumbarSpine]:     { x: 0.40, y: 0.30, w: 0.20, h: 0.12 },
-  [BodyRegion.Abdomen]:         { x: 0.25, y: 0.28, w: 0.50, h: 0.14 },
-  [BodyRegion.Pelvis]:          { x: 0.25, y: 0.42, w: 0.50, h: 0.08 },
-  [BodyRegion.Hip]:             { x: 0.25, y: 0.47, w: 0.50, h: 0.05 },
-  [BodyRegion.LowerExtremity]:  { x: 0.18, y: 0.50, w: 0.64, h: 0.50 },
+  [BodyRegion.Head]:            { x: 0.38, y: 0.00, w: 0.24, h: 0.18 },
+  [BodyRegion.CervicalSpine]:   { x: 0.44, y: 0.18, w: 0.12, h: 0.06 },
+  [BodyRegion.Shoulder]:        { x: 0.25, y: 0.22, w: 0.50, h: 0.06 },
+  [BodyRegion.Chest]:           { x: 0.35, y: 0.28, w: 0.30, h: 0.14 },
+  [BodyRegion.ThoracicSpine]:   { x: 0.44, y: 0.28, w: 0.12, h: 0.14 },
+  [BodyRegion.UpperExtremity]:  { x: 0.05, y: 0.24, w: 0.90, h: 0.32 },
+  [BodyRegion.LumbarSpine]:     { x: 0.44, y: 0.42, w: 0.12, h: 0.12 },
+  [BodyRegion.Abdomen]:         { x: 0.35, y: 0.42, w: 0.30, h: 0.12 },
+  [BodyRegion.Pelvis]:          { x: 0.33, y: 0.54, w: 0.34, h: 0.10 },
+  [BodyRegion.Hip]:             { x: 0.28, y: 0.54, w: 0.44, h: 0.10 },
+  [BodyRegion.LowerExtremity]:  { x: 0.28, y: 0.62, w: 0.44, h: 0.38 },
 };
 
 export interface BodyPart {
